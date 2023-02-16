@@ -19,10 +19,10 @@ int main(void)
 
 			if (i < 8 && j <= 9)
 			{
-				if (j < 9)
-				putchar(',');
-
+				if (i <= 8 && j <= 9)
 				putchar(' ');
+				if (i < 8 && j <= 9)
+				putchar(',');
 			}
 		}
 	}
