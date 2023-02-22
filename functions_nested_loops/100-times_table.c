@@ -13,12 +13,21 @@ void print_times_table(int n)
 	{
 		for (i = 0 ; i <= n ; i++)
 		{
+			_putchar('0');
+
 			for (j = 0 ; j <= n ; j++)
 			{
 				res = i * j;
 
-				_putchar(',');
-				_putchar(' ');
+				if (n == 0)
+				{
+					_putchar('0');
+				}
+				else if (res != 0)
+				{
+					_putchar(','):
+					_putchar(' ');
+				}
 
 				if (n <= 9)
 				{
@@ -28,11 +37,13 @@ void print_times_table(int n)
 				}
 				else if (n <= 99)
 				{
-					_putchar(' ');
+					if(res > 99)
+						_putchar(' ');
+
 					_putchar(res / 10 + '0');
 					_putchar(res % 10 + '0');
 				}
-				else
+				else if (n >= 100)
 				{
 					_putchar((res / 100) % 10 + '0');
 					_putchar((res / 10) % 10 + '0');
