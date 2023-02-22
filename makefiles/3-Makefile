@@ -8,12 +8,11 @@ RM = rm -f
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-fclean:
-	oclean clean
-
 oclean:
 	$(RM) $(OBJ)
 clean:
 	$(RM) $(CLEANFILE) $(NAME)
+fclean:
+	oclean clean
 re:
 	oclean all
