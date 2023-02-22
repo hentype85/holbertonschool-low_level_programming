@@ -15,10 +15,9 @@ void print_times_table(int n)
 			for (j = 0 ; j <= n ; j++)
 			{
 				res = i * j;
-				if (res == 0)
+				if (j == 0)
 					_putchar(0);
-
-				if (n <= 9 && j != 0)
+				else if (n <= 9 && j != 0)
 				{
 					_putchar(',');
 					_putchar(' ');
