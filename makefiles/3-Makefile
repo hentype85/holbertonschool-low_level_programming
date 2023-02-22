@@ -11,7 +11,5 @@ clean:
 	$(RM) $(CLEANFILE) $(NAME)
 oclean:
 	$(RM) $(OBJ)
-fclean:
-	oclean clean
-re:
-	oclean all
+fclean:	oclean clean
+re: oclean all
