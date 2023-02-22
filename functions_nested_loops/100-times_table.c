@@ -2,7 +2,6 @@
 /**
  * print_times_table - Prints a multiplication table up to param
  * @n: The number to be treated
- *
  * Return: Number matrix
  */
 void print_times_table(int n)
@@ -18,17 +17,10 @@ void print_times_table(int n)
 			for (j = 0 ; j <= n ; j++)
 			{
 				res = i * j;
-
 				if (n == 0)
 				{
 					_putchar('0');
 				}
-				else if (res != 0)
-				{
-					_putchar(','):
-					_putchar(' ');
-				}
-
 				if (n <= 9)
 				{
 					_putchar(' ');
@@ -37,9 +29,8 @@ void print_times_table(int n)
 				}
 				else if (n <= 99)
 				{
-					if(res > 99)
+					if (res > 99)
 						_putchar(' ');
-
 					_putchar(res / 10 + '0');
 					_putchar(res % 10 + '0');
 				}
