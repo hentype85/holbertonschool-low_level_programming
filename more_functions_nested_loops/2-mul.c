@@ -1,7 +1,9 @@
 #include "main.h"
-/*
- * mul - function that multiplies two integers.
- * return: return multipication a x b
+/**
+ * mul - a function that multiplies two integers.
+ * @a: integer parameter
+ * @b: integer parameter
+ * Return: return multipication a x b
  */
 
 int mul(int a, int b)
