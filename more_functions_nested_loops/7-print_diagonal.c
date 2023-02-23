@@ -2,10 +2,14 @@
 /**
  * print_diagonal - a function that draws a diagonal line on the terminal
  * @n: length of diagonal
+ *
  */
 void print_diagonal(int n)
 {
 	int i, j;
+
+	if (n <= 0)
+		_putchar(' ');
 
 	for (i = 0 ; i < n ; i++)
 	{
