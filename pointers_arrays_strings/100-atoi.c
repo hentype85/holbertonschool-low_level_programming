@@ -8,10 +8,10 @@
  */
 int _atoi(char *s)
 {
-	unsigned int res, len = 0, sign = 1;
+	unsigned int res = 0;
+	int sign = 1;
 
-	do
-	{
+	do {
 		if (*s == '-')
 			sign *= -1;
 
@@ -20,6 +20,7 @@ int _atoi(char *s)
 
 		else if (res > 0)
 			break;
+
 	} while (*s++);
 
 	return (res * sign);
