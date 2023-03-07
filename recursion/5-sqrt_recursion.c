@@ -16,7 +16,7 @@ int compare(int n, int i)
 
 	return (compare(n, i + 1));
 }
-/*
+/**
  *_sqrt_recursion - returns the power of number
  *@n: parameter number
  *Return: natural square root
