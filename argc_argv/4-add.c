@@ -11,11 +11,11 @@ int main(int argc, char *argv[])
 {
 	int i = 0, j = 0, res = 0;
 
-	for( i = 0 ; i < argc ; i++)
+	for( i = 1 ; i < argc ; i++)
 	{
 		for(j = 0 ; argv[i][j] != '\0' ; j++)
 		{
-			if (argv[i][j] < 47  || argv[i][j] > 57)
+			if ((argv[i][j] < 47) || (argv[i][j] > 57))
 			{
 				printf("Error\n");
 				return(1);
