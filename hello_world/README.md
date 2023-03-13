@@ -1,4 +1,4 @@
-# In which category belongs the C programming language?<
+# In which category belongs the C programming language?
 Compiled language
                                                                    
 # What is the common extension for a C source file?<\n>
