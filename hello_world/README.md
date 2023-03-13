@@ -1,5 +1,3 @@
-# C - Hello, World
-
 # In which category belongs the C programming language?<
 Compiled language
                                                                    
@@ -21,4 +19,3 @@ gcc
 
 # Different steps to form an executable file from C source code:
 Preprocessing, compilation, assembly, and linking
-
