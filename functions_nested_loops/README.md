@@ -2,7 +2,7 @@
 
 # these loop statements don’t exist in c:
 ```sh
-foreach loop_to each
+foreach, loop_to, each
 ```                                                              
 # What is the ASCII value of A?
 ```sh
