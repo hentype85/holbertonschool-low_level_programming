@@ -12,11 +12,11 @@ gcc
 
 # Syntaxes in ANSI C, and Betty-compliant:
 
-/* Comment */
+# /* Comment */
   
-/**
- *Comment
- **/
+# /*
+# * Comment
+# */
 
 # Different steps to form an executable file from C source code:
 Preprocessing, compilation, assembly, and linking
