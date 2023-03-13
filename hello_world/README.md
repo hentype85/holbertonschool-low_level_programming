@@ -11,6 +11,7 @@ Compiled language
 gcc
 
 # Syntaxes in ANSI C, and Betty-compliant:
+
 /* Comment */
   
 /*
