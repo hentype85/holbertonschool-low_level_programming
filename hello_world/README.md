@@ -2,11 +2,11 @@
 ```sh
 Compiled language
 ```                                                              
-# What is the common extension for a C source file?<\n>
+# What is the common extension for a C source file?
 ```sh
 .c
 ```
-# What is the common extension for a C header file?<\n>
+# What is the common extension for a C header file?
 ```sh
 .h
 ```
