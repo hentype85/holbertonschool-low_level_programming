@@ -12,7 +12,7 @@
 
 4 bytes
 
-statements in ANSI C and Betty-compliant (Considering a and b two variables of type int):
+# statements in ANSI C and Betty-compliant (Considering a and b two variables of type int):
 ```sh
 if (a > b)
 {
