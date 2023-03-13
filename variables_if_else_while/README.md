@@ -13,15 +13,16 @@
 4 bytes
 
 statements in ANSI C and Betty-compliant (Considering a and b two variables of type int):
-
+```sh
 if (a > b)
 {
   return (a);
 }
-
+```
+```sh
 if (a > b)
   return (a);
-
+```
 # for statements in ANSI C and Betty-compliant? (Considering a and b two variables of type int):
 ```sh
 for (a = 0; a < b; a++)
