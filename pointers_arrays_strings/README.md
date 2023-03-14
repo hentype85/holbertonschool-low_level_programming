@@ -1,1 +1,1 @@
-hello
+# C - Pointers, arrays and strings
