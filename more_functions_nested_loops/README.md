@@ -95,7 +95,7 @@ int some_function(void)
 }
 
 /*ouptut: 98*/
-
+```
 # What is the return value of the following function?
 ```sh
 int some_function(void)
@@ -110,5 +110,4 @@ int some_function(void)
 }
 
 /*output: 10*/
-```
 ```
