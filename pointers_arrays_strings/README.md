@@ -56,17 +56,17 @@ int *p = &n;
 value: 98
 
 ## We declare the following variable
-```sh
-int arr[5];
-
 What is the size in memory of the variable arr?
-size: 20 bytes  
-```
-## We declare the following variable
 ```sh
 int arr[5];
 
-What is the equivalent of typing arr[2]?
-
-*(arr + 2)
 ```
+size: 20 bytes  
+
+## We declare the following variable
+What is the equivalent of typing arr[2]?
+```sh
+int arr[5];
+
+```
+*(arr + 2)
