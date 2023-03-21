@@ -4,6 +4,7 @@
 
 /**
  * free_dog - frees dogs
+ * @d: pointer parameter
  */
 void free_dog(dog_t *d)
 {
