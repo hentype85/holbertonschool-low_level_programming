@@ -24,6 +24,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
+	if (get_op_func(argv[2] == NULL))
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
 	operation = get_op_func(argv[2]);
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
