@@ -7,6 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0, flag = 0;
+	char *s;
 	va_list vlist;
 
 	va_start(vlist, format);
@@ -26,7 +27,9 @@ void print_all(const char * const format, ...)
 				printf("%f", va_arg(vlist, double));
 				break;
 			case 's':
-				printf("%s", va_arg(vlist, char*));
+				s = va_arg(vlist, char*);
+				s = (s == NULL) ? "(nil)" : s;
+				printf("%s", s);
 				break;
 			default:
 				flag = 1;
