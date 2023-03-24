@@ -12,7 +12,7 @@ void print_all(const char * const format, ...)
 
 	va_start(vlist, format);
 
-	while (format[i] && format[i] != NULL)
+	while (format[i])
 	{
 		flag = 0;
 		switch (format[i])
@@ -39,7 +39,6 @@ void print_all(const char * const format, ...)
 		i++;
 		if (format[i] && flag == 0)
 			printf(", ");
-
 	}
 
 	va_end(vlist);
