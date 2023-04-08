@@ -16,40 +16,34 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (h == NULL)
 		return (NULL);
-	if (idx == 0)	/*insert node beginning of the list*/
-		newNode = add_dnodeint(h, n);
+	if (idx == 0)
+		newNode = add_dnodeint(h, n); /*insert node at the beginning of the list*/
 	else
 	{
-		if (tmp != NULL)
+		while (tmp != NULL && i < (idx - 1))
 		{
-			while ((*tmp).prev != NULL)
-				tmp = (*tmp).prev;
-		}
-
-		while (tmp != NULL)
-		{
-			if (i == idx)
-			{
-				if ((*tmp).next == NULL) /*insert node at the end of list*/
-					newNode = add_dnodeint_end(h, n);
-				else
-				{
-					newNode = malloc(sizeof(dlistint_t));
-
-					if (newNode != NULL)
-					{
-						(*newNode).n = n;
-						(*newNode).next = (*tmp).next;
-						(*newNode).prev = tmp;
-
-						(*(*tmp).next).prev = newNode;
-						(*tmp).next = newNode;
-					}
-				}
-				break;
-			}
 			tmp = (*tmp).next;
 			i++;
+		}
+
+		if (tmp != NULL)
+		{
+			if ((*tmp).next == NULL) /*inset node at the end of list*/
+				newNode = add_dnodeint(h, n);
+			else
+			{
+				newNode = malloc(sizeof(dlistint_t));
+				/* insert node in the middle of the list */
+				if (newNode != NULL)
+				{
+					(*newNode).n = n;
+					(*newNode).next = (*tmp).next;
+					(*newNode).prev = tmp;
+
+					(*(*tmp).next).prev = newNode;
+					(*tmp).next = newNode;
+				}
+			}
 		}
 	}
 	return (newNode);
