@@ -5,6 +5,9 @@
  * @b: binary number
  * Return: an unsigned int
  */
+/**
+ * converts binary to decimal
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int num = 0;
