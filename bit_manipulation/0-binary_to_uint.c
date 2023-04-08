@@ -5,9 +5,8 @@
  * @b: binary number
  * Return: an unsigned int
  */
-/* Converts a string of 0 and 1 characters into an unsigned integer */
 unsigned int binary_to_uint(const char *b)
-{
+{ /* Converts a string of 0 and 1 characters into an unsigned integer */
 	unsigned int num = 0;
 	int i = 0;
 
