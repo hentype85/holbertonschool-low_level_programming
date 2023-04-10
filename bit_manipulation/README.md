@@ -3,7 +3,7 @@
 ```
 int i = 5;        00000101
 int j = 17;       00010001
-```
+
 
 XOR
 int h = i ^ j;    00010100  if they are different "1" (Difference)
@@ -31,3 +31,4 @@ int c = ~i;       11111010  if the value is 5 then the result is -6 (Invert)
                   00001000
                   00000001
 
+```
