@@ -4,13 +4,13 @@
 int i = 5;        00000101
 int j = 17;       00010001
 
-# XOR
+XOR
 int h = i ^ j;    00010100  if they are different "1" (Difference)
-# OR
+OR
 int a = i | j;    00010101  if there is at least one "1" place "1" (Union)
-# AND 
+AND 
 int b = i & j;    00000001  if there is at least one "0" place "0" (Intersection)
-# NOT
+NOT
 int c = ~i;       11111010  if the value is 5 then the result is -6 (Invert)
 
 
