@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
 {
 	int file_from, file_to;
 	int errorClose = 0, numChar = 1024, numWr = 0;
-	unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char buffer[size];
 	/*check vector*/
 	if (argc != 3)
@@ -41,7 +40,7 @@ int main(int argc, char *argv[])
 	}
 	/*open file*/
 	file_from = open(argv[1], O_RDONLY);/*open*/
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, mode);/*open*/
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);/*open*/
 	ErrorOpen(file_from, file_to, argv);
 	/*copy file*/
 	while (numChar == size)
