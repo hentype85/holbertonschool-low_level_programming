@@ -10,15 +10,9 @@
 void ErrorOpen(int file_from, int file_to, char *argv[])
 {
 	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can´t read from file %s\n", argv[1]);
-		exit(98);
-	}
+		dprintf(STDERR_FILENO, "Error: Can´t read from file %s\n", argv[1]), exit(98);
 	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can´t write to %s\n", argv[2]);
-		exit(99);
-	}
+		dprintf(STDERR_FILENO, "Error: Can´t write to %s\n", argv[2]), exit(99);
 }
 
 /**
@@ -30,14 +24,12 @@ void ErrorOpen(int file_from, int file_to, char *argv[])
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
-	int errorClose = 0, numChar = 1024, numWr = 0;
+	int errorClose = 0, numChar = size, numWr = 0;
 	char buffer[size];
 	/*check vector*/
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
-		exit(97);
-	}
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to"), exit(97);
+
 	/*open file*/
 	file_from = open(argv[1], O_RDONLY);/*open*/
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);/*open*/
@@ -45,7 +37,7 @@ int main(int argc, char *argv[])
 	/*copy file*/
 	while (numChar == size)
 	{
-		numChar = read(file_from, buffer, numChar);/*read*/
+		numChar = read(file_from, buffer, size);/*read*/
 		if (numChar == -1)
 			ErrorOpen(-1, 0, argv);
 
@@ -56,15 +48,11 @@ int main(int argc, char *argv[])
 	/*Close file*/
 	errorClose = close(file_from);/*close*/
 	if (errorClose == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from), exit(100);
+
 	errorClose = close(file_to);/*close*/
 	if (errorClose == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_to);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_to), exit(100);
+
 	return (0);
 }
