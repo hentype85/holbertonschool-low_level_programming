@@ -29,7 +29,7 @@ void ErrorOpen(int file_from, int file_to, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to;
+	int file_from = 0, file_to = 0;
 	int numChar = size, numWr = 0;
 	char buffer[size];
 
@@ -46,12 +46,8 @@ int main(int argc, char *argv[])
 	while (numChar == size)
 	{
 		numChar = read(file_from, buffer, size);/*read*/
-		if (numChar == -1)
-			ErrorOpen(-1, 0, argv);
-
 		numWr = write(file_to, buffer, numChar);/*write*/
-		if (numWr == -1)
-			ErrorOpen(0, -1, argv);
+		ErrorOpen(numChar, numWr, argv);
 	}
 
 	/*Close files*/
