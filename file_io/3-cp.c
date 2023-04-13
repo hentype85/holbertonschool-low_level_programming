@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 	int file_from, file_to;
 	int errorClose = 0, numChar = size, numWr = 0;
 	char buffer[size];
+
 	/*check vector*/
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to"), exit(97);
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
 	file_from = open(argv[1], O_RDONLY);/*open*/
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);/*open*/
 	ErrorOpen(file_from, file_to, argv);
+
 	/*copy file*/
 	while (numChar == size)
 	{
@@ -51,14 +53,15 @@ int main(int argc, char *argv[])
 		if (numWr == -1)
 			ErrorOpen(0, -1, argv);
 	}
-	/*Close file*/
-	errorClose = close(file_from);/*close*/
-	if (errorClose == -1)
-		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from), exit(100);
 
+	/*Close file*/
 	errorClose = close(file_to);/*close*/
 	if (errorClose == -1)
 		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_to), exit(100);
+
+	errorClose = close(file_from);/*close*/
+	if (errorClose == -1)
+		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from), exit(100);
 
 	return (0);
 }
