@@ -30,7 +30,7 @@ void ErrorOpen(int file_from, int file_to, char *argv[])
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
-	int errorClose = 0, numChar = size, numWr = 0;
+	int numChar = size, numWr = 0;
 	char buffer[size];
 
 	/*check vector*/
@@ -54,13 +54,11 @@ int main(int argc, char *argv[])
 			ErrorOpen(0, -1, argv);
 	}
 
-	/*Close file*/
-	errorClose = close(file_to);/*close*/
-	if (errorClose == -1)
+	/*Close files*/
+	if (close(file_to) == -1)
 		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_to), exit(100);
 
-	errorClose = close(file_from);/*close*/
-	if (errorClose == -1)
+	if (close(file_from) == -1)
 		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from), exit(100);
 
 	return (0);
