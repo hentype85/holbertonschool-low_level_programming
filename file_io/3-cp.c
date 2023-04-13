@@ -1,19 +1,20 @@
 #include "main.h"
+#define size 1024
 
 /**
- * GetError - check if the file can open
- * @fileFrom: parameter
- * @fileTo: parameter
+ * ErrorOpen - check if the file can open
+ * @file_from: parameter
+ * @file_to: parameter
  * @argv: arguments vector
  */
-void ErrorFromTo(int fileFrom, int fileTo, char *argv[])
+void ErrorOpen(int file_from, int file_to, char *argv[])
 {
-	if (fileFrom == -1)
+	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can´t read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (fileTo == -1)
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can´t write to %s\n", argv[2]);
 		exit(99);
@@ -28,37 +29,42 @@ void ErrorFromTo(int fileFrom, int fileTo, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, errorCloseFrom, errorCloseTo;
-	int numChar = 1024, numWr;
-	char buffer[1024];
-
+	int file_from, file_to;
+	int errorClose = 0, numChar = 1024, numWr = 0;
+	char buffer[size];
+	/*check vector*/
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-
-	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	ErrorFromTo(file_from, file_to, argv);
-
-	while (numChar == 1024)
+	/*open file*/
+	file_from = open(argv[1], O_RDONLY);/*open*/
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);/*open*/
+	ErrorOpen(file_from, file_to, argv);
+	/*copy file*/
+	while (numChar == size)
 	{
-		numChar = read(file_from, buffer, 1024);
+		numChar = read(file_from, buffer, numChar);/*read*/
 		if (numChar == -1)
-			ErrorFromTo(-1, 0, argv);
+			ErrorOpen(-1, 0, argv);
 
-		numWr = write(file_to, buffer, numChar);
+		numWr = write(file_to, buffer, numChar);/*write*/
 		if (numWr == -1)
-			ErrorFromTo(0, -1, argv);
+			ErrorOpen(0, -1, argv);
+	}
+	/*Close file*/
+	errorClose = close(file_from);/*close*/
+	if (errorClose == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_from);
+		exit(100);
 	}
 
-	errorCloseFrom = close(file_from);
-	errorCloseTo = close(file_to);
-	
-	if (errorCloseFrom == -1 || errorCloseTo == -1)
+	errorClose = close(file_to);/*close*/
+	if (errorClose == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can´t close %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can´t close fd %d\n", file_to);
 		exit(100);
 	}
 
