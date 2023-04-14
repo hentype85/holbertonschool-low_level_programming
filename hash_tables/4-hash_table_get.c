@@ -20,12 +20,8 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	if (getNode != NULL)
 	{
-		while (ht->array[i])
-		{
-			if (strcmp(getNode->key, key) != 0)
-				getNode = getNode->next;
-			i++;
-		}
+		while (getNode != NULL && strcmp(getNode->key, key) != 0)
+			getNode = getNode->next;
 
 		return (getNode->value);
 	}
